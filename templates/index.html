@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SQL Editor</title>
+  </head>
+  <body>
+    <h1>SQL Editor</h1>
+    <p1>In this table, there are 2 columns labled "Name" and "Bday". This web application supports SELECT, INSERT, DELETE, UPDATE, CREATE</p1>
+    {% if error %}
+      <p style="color: red">{{ error }}</p>
+    {% endif %}
+    {% if message %}
+      <p style="color: green">{{ message }}</p>
+    {% endif %}
+    <form method="post" action="{{ url_for('run_query') }}">
+      <label for="query">Enter your SQL query:</label><br>
+      <textarea id="query" name="query" rows="10" cols="50"></textarea><br>
+      <input type="submit" value="Run/Submit">
+    </form>
+  </body>
+</html>

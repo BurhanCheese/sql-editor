@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Query Results</title>
+  </head>
+  <body>
+    {% if results is not none %}
+      <table>
+        <thead>
+          <tr>
+            {% for column in results.description %}
+              <th>{{ column[0] }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in results %}
+            <tr>
+              {% for value in row %}
+                <td>{{ value }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Query executed successfully.</p>
+    {% endif %}
+  </body>
+</html>
